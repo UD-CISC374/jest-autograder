@@ -93,7 +93,7 @@ if [ "$CONFIG_TEST_STUDENT_MAIN" = true ] ; then
     PUBLIC_FOLDER="public"
     copy_student_directory "$PUBLIC_FOLDER" "$DIR"/staging_main/${PUBLIC_FOLDER}
 
-    "$DIR"/run_main_tests
+    "$DIR"/run_main_tests "$DIR"
 
 fi
 
