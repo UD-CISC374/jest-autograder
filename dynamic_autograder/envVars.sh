@@ -3,7 +3,7 @@
 # Extract just the git repo:
 #   https://serverfault.com/questions/417241/extract-repository-name-from-github-url-in-bash
 
-GIT_REPO = "${git config --get remote.origin.url}"
+# Load in GIT_REPO
 BASE_DIR=/autograder/git-repo
 WITHOUT_SUFFIX="${GIT_REPO%.*}"
 REPO_NAME="$(basename "${WITHOUT_SUFFIX}")"

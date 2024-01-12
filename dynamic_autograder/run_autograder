@@ -2,6 +2,7 @@
 
 # Update autograder files
 
+. /autograder/source/env.sh
 . /autograder/source/envVars.sh
 
 TARGET_DIR="/autograder/git-repo/${REPO_NAME}"

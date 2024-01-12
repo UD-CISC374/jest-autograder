@@ -1,10 +1,18 @@
 # Root folder of autograder
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && cd ../ && pwd )"
 
+# Clear out existing, if it exists
+rm -f $DIR/Autograder.zip
+
 # Add in dynamicautograder stuff
 cd $DIR/dynamic_autograder/
-zip Autograder.zip envVars.sh ssh_config setup.sh run_autograder 
+zip $DIR/Autograder.zip envVars.sh ssh_config setup.sh run_autograder 
+
+# Add in the current repo information
+GIT_REPO=$(git config --get remote.origin.url)
+echo "GIT_REPO=\"${GIT_REPO}\"" > env.sh
+zip -u $DIR/Autograder.zip -m env.sh
 
 # Then add in deploy keys
 cd $DIR
-zip -u Autograder.zip deploy_keys/deploy_key
+zip -u $DIR/Autograder.zip deploy_keys/deploy_key

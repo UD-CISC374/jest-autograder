@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+. /autograder/source/dynamic_autograder/env.sh
 . /autograder/source/dynamic_autograder/envVars.sh
 
 mkdir -p /root/.ssh
