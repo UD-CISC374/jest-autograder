@@ -4,11 +4,11 @@
 if [ -f "/autograder/harness.py" ]; then
     echo "[GS] Running on Gradescope container, using Gradescope vars"
     if [ "$#" -lt 1 ]; then
-        # First argument can be provided to change where we run stuff from
-        DIR="$1"
-    else
         # If not given, then we use the default location
         DIR="/autograder/source"
+    else
+        # First argument can be provided to change where we run stuff from
+        DIR="$1"
     fi
     OUTPUT_DIR="/autograder/results"
     STUDENT_SUBMISSION_DIR="/autograder/submission"
