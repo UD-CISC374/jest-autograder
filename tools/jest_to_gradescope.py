@@ -27,7 +27,7 @@ def get_name(assertion):
     regex=r'^(\(\s*(\d+)\s*pt[s]?[\s]*\))?(.*?)(!!.+)?$'
     match = re.search(regex, assertion["title"])
     title = match.group(3)
-    return f'{formatted_ancestors}: title'
+    return f'{formatted_ancestors}: {title}'
 
 def get_max_score(assertion):
     regex=r'^(\(\s*(\d+)\s*pt[s]?[\s]*\))?(.*)$'
