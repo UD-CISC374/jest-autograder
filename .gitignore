@@ -3,6 +3,8 @@ jest-output.json
 
 node_modules
 build
+coverage
+results/
 
 target/
 pom.xml.tag
@@ -24,6 +26,6 @@ Autograder.zip
 .project
 .settings/
 
-localautograder/
-staging_main/*
+staging_main/typescript/src/main/*
+!staging_main/typescript/src/main/.keep
 staging_test/*

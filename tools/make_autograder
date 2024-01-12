@@ -3,7 +3,7 @@
 ###########################################################################################
 #
 #   Make autograder:
-#       - Cleans up files (all .DS_Store, staging/target, staging/src/main/java*)
+#       - Cleans up files (all .DS_Store, staging/target, staging/src/main/typescript*)
 #       - Creates a top level zip of only the essential files required for the
 #           autograder to actually run
 #
@@ -21,6 +21,6 @@ find . -name node_modules -ls -and -exec /bin/rm -rf {} \;
 
 find . -name ".DS_Store" -exec rm -rf {} \;
 rm -f "$DIR"/Autograder.zip
-rm -rf "$DIR"/staging_main/javascript/src/main/*
-rm -rf "$DIR"/staging_test/javascript/src/*
+rm -rf "$DIR"/staging_main/typescript/src/main/*
+rm -rf "$DIR"/staging_test/typescript/src/*
 zip -r Autograder.zip . -x "localautograder/*" "*.git*"

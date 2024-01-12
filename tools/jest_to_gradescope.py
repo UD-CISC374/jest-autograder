@@ -70,8 +70,11 @@ def main():
         })
 
     print("jest_data",json.dumps(jest_data, indent=2))
-    print("asssertions",json.dumps(assertions, indent=2))
+    print("assertions",json.dumps(assertions, indent=2))
     print("gradescope_tests",json.dumps(gradescope_tests, indent=2))
+    # TODO: Add in coverage information
+    # TODO: Add in file integrity checks
+    # TODO: Add in linter report
 
     if args.output != None:
       with open(args.output,'w') as json_data:

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 
-# Searches student code for a DIR_TO_COPY($1), and copies it to DESTINATION_JAVA_SRC($2)
+# Searches student code for a DIR_TO_COPY($1), and copies it to DESTINATION_TS_SRC($2)
 # Called below
 run_command () {
     COMMAND_TO_RUN=$1
@@ -10,6 +10,7 @@ run_command () {
     RESULTS_FILE_NAME=$4
     SKIP_SUCCESS_CHECK=$5
 
+    echo "[GS - Main Tests] ${COMMAND_LABEL} listing files"
     pwd
     ls -al
 
@@ -68,13 +69,16 @@ source "$DIR"/grading.config
 #
 ###########################################################################################
 
-cd "$DIR"/staging_main/javascript
+cd "$DIR"/staging_main/typescript
 
-rm -rf "$DIR"/staging_main/javascript/node_modules
+
+rm -rf "$DIR"/staging_main/typescript/node_modules
 
 run_command "npm install" "npm install" "npm_install" "results10.json" 1
 
-run_command "npx react-scripts test --json --watchAll=false --outputFile jest-output.json" "Instructor tests" "instuctor_tests" "results11.json" 1
+# TODO: Run eslint, integrity checks
+
+run_command "npm run test:json" "Instructor tests" "instuctor_tests" "results11.json" 1
 
 $JEST_JSON_TOOL -i jest-output.json -o "$OUTPUT_DIR"/"results12.json"
 

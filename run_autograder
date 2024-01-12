@@ -42,19 +42,19 @@ find . -name "__MACOSX" -exec rm -rf {} \;
 # Remove old results.json files
 rm -r "$OUTPUT_DIR"/*.json
 
-# Searches student code for a DIR_TO_COPY($1), and copies it to DESTINATION_JAVA_SRC($2)
+# Searches student code for a DIR_TO_COPY($1), and copies it to DESTINATION_TS_SRC($2)
 # Called below
 copy_student_directory () {
     DIR_TO_COPY=$1
-    DESTINATION_JAVA_SRC=$2
+    DESTINATION_TS_SRC=$2
 
-    STUDENT_SUBMISSION_JAVA_SRC=$(find . -path "*/$DIR_TO_COPY");
-    if [ -n "$STUDENT_SUBMISSION_JAVA_SRC" ]
+    STUDENT_SUBMISSION_TS_SRC=$(find . -path "*/$DIR_TO_COPY");
+    if [ -n "$STUDENT_SUBMISSION_TS_SRC" ]
     then
-        echo "[GS] Found student $DIR_TO_COPY directory at $STUDENT_SUBMISSION_JAVA_SRC";
-        echo "  [GS] Copying $STUDENT_SUBMISSION_JAVA_SRC to $DESTINATION_JAVA_SRC";
-        rm -rf $DESTINATION_JAVA_SRC/*
-        cp -r $STUDENT_SUBMISSION_JAVA_SRC/* $DESTINATION_JAVA_SRC/
+        echo "[GS] Found student $DIR_TO_COPY directory at $STUDENT_SUBMISSION_TS_SRC";
+        echo "  [GS] Copying $STUDENT_SUBMISSION_TS_SRC to $DESTINATION_TS_SRC";
+        rm -rf $DESTINATION_TS_SRC/*
+        cp -r $STUDENT_SUBMISSION_TS_SRC/* $DESTINATION_TS_SRC/
         echo "  [GS] Copy complete!"
         # Optionally output successful finding of src/main
         if [ "$CONFIG_OUTPUT_PASSING_SANITY_TESTS" = true ] ; then
@@ -81,10 +81,10 @@ error_exit()
 }
 
 if [ "$CONFIG_TEST_STUDENT_MAIN" = true ] ; then
-    DIRECTORY_SOUGHT="javascript/src/main"
+    DIRECTORY_SOUGHT="typescript/src/main"
     copy_student_directory "$DIRECTORY_SOUGHT" "$DIR"/staging_main/${DIRECTORY_SOUGHT}
 
-    PUBLIC_FOLDER="javascript/public"
+    PUBLIC_FOLDER="typescript/public"
     copy_student_directory "$PUBLIC_FOLDER" "$DIR"/staging_main/${PUBLIC_FOLDER}
 
     "$DIR"/run_main_tests

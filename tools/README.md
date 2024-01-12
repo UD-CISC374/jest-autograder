@@ -52,7 +52,7 @@ python3 parse_mutations.py --reportpath /autograder/source/staging_test/target/p
 # make_autograder
 This script cleans unnecessary files and prepares an `Autograder.zip` to upload to Gradescope. The following files get erased:
 * *.DS_Store
-* staging_main/src/main/java/*
+* staging_main/src/main/typescript/*
 * staging_main/target/
 * staging_test/src/*
 * staging_test/target/
