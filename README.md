@@ -1,7 +1,7 @@
 # Jest Autograder
 
 This autograder is intended for use with assignments that use Jest,
-a test framework for JavaScript.
+a test framework for typescript.
 
 It borrows heavily from an [autograder written for Maven
 by Cole Bergmann](https://github.com/ucsb-gradescope-tools/maven-autograder), which in turn is based on earlier autograders by Phill Conrad.
@@ -11,9 +11,9 @@ by Cole Bergmann](https://github.com/ucsb-gradescope-tools/maven-autograder), wh
 
 * [Jest JSON output documentation](https://jestjs.io/docs/en/configuration#testresultsprocessor-string)
 
-
 # Quick Start
 
+* If you are on Windows, install [WSL]() so you can run bash scripts just like they would be run on GradeScope. You just need an administrator powershell instance and run `wsl --install -d Ubuntu` to install.
 * Create a new empty private repo for your assignment, e.g. `lab01-AUTOGRADER-PRIVATE`
 * Add this repo as a remote, e.g.
   ```
@@ -21,13 +21,13 @@ by Cole Bergmann](https://github.com/ucsb-gradescope-tools/maven-autograder), wh
   ```
 * Pull the  repo into yours: `git pull starter main`
 * In `localautograder`, put a sample solution to be checked against the autograder.
-  * Put a sample solution (reference implementation) in `localautograder/submission/javascript/src/main`
+  * Put a sample solution (reference implementation) in `localautograder/submission/typescript/src/main`
   * If you also are testing a student test suite, optionally add a sample student test suite under
-    `localautograder/submission/javascript/src/test`
+    `localautograder/submission/typescript/src/test`
 * In `staging_main`, put your instructor test suite
-  * Tests go into `/staging_main/javascript/src/test` replacing
-    the files under `/staging_main/javascript/src/test/course`
-  * Copy your `package.json` into `staging_main/javascript/package.json`
+  * Tests go into `/staging_main/typescript/src/test` replacing
+    the files under `/staging_main/typescript/src/test/course`
+  * Copy your `package.json` into `staging_main/typescript/package.json`, along with any other necessary files for execution.
 * You will likely not need to modify the `grading.config` file in the current
   version, since the defaults are what you will almost always want, but
   there is a reference below in case you do.
@@ -38,16 +38,16 @@ by Cole Bergmann](https://github.com/ucsb-gradescope-tools/maven-autograder), wh
   ```
   
   At first, there will be no graded tests.  We'll add those in the next step.
-* The instructor tests are the ones that live under `staging_main/javascript/src/test`.  So in that directory, visit every jest test in your test suite, and for each test that you want to be graded, add a prefix to the test label which indicates the number of points.
+* The instructor tests are the ones that live under `staging_main/typescript/src/test`.  So in that directory, visit every jest test in your test suite, and for each test that you want to be graded, add a prefix to the test label which indicates the number of points.
   For example, instead of:
   
-  ```javascript
+  ```typescript
       test('(can create a Course object', () => {
       ...
   ```
 
   Use:
-  ```javascript
+  ```typescript
       test('(5 pts) can create a Course object', () => {
       ...
   ```
@@ -104,7 +104,7 @@ for example.
 ## File structure:
 
 - `staging_main/` - The maven project used to run **instructor** tests. 
-  Student code will be copied into `javascript/src/main` and the instructor will configure the `javascript/package.json` and `javascript/src/test` classes
+  Student code will be copied into `typescript/src/main` and the instructor will configure the `typescript/package.json` and `typescript/src/test` classes
 
 - `localautograder/` - This folder is used when doing local testing
   of the autograder.
