@@ -35,11 +35,11 @@ def get_max_score(assertion):
     return match.group(2)
 
 def get_visibility(assertion):
-    regex=r'^(\(\s*(\d+)\s*pt[s]?[\s]*\))?(.*?)(!!.+)?$'
+    regex=r'^(\(\s*(\d+)\s*pt[s]?[\s]*\))?(.*?)(!!(.+))?$'
     match = re.search(regex, assertion["title"])
     status = match.group(4) or "visible"
     status = "hidden" if status == 'hide' else status
-    return match.group(4)
+    return match.group(5)
 
 def get_score(assertion):
     max_score = get_max_score(assertion)
