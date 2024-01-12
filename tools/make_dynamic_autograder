@@ -10,7 +10,8 @@ zip $DIR/Autograder.zip envVars.sh ssh_config setup.sh run_autograder
 
 # Add in the current repo information
 GIT_REPO=$(git config --get remote.origin.url)
-echo "GIT_REPO=\"${GIT_REPO}\"" > env.sh
+GIT_REPO="\"${GIT_REPO/https:\/\/github.com\//git@github.com:}\""
+echo "GIT_REPO=${GIT_REPO}" > env.sh
 zip -u $DIR/Autograder.zip -m env.sh
 
 # Then add in deploy keys

@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-. /autograder/source/dynamic_autograder/env.sh
-. /autograder/source/dynamic_autograder/envVars.sh
+. /autograder/source/env.sh
+. /autograder/source/envVars.sh
 
 mkdir -p /root/.ssh
-cp /autograder/source/dynamic_autograder/ssh_config /root/.ssh/config
+cp /autograder/source/ssh_config /root/.ssh/config
 
 
 apt-get install -y python3 python3-pip python3-dev

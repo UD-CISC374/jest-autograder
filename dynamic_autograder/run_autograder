@@ -12,13 +12,13 @@ pwd
 cd $TARGET_DIR
 pwd
 # Get latest updates to the actual repo
-git pull origin master
+git pull origin main
 
 rm -rf deploy_keys
 
 # Run the *actual* run_autograder.sh
-chmod u+x ./run_autograder.sh
+chmod u+x ./run_autograder
 # Provide the git-repo/ directory as the destination to run from
-./run_autograder.sh "${TARGET_DIR}"
+./run_autograder "${TARGET_DIR}"
 
 
