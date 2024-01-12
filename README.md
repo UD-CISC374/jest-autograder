@@ -18,7 +18,7 @@ So this is a fork of a fork of a fork.
 * Create a new empty private repo for your assignment, e.g. `lab01-AUTOGRADER-PRIVATE`
 * Add this repo as a remote, e.g.
   ```
-  git remote add starter git@github.com:ucsb-gradescope-tools/jest-autograder.git
+  git remote add starter git@github.com:acbart/jest-autograder.git
   ```
 * Pull the  repo into yours: `git pull starter main`
 * In `localautograder`, put a sample solution to be checked against the autograder.
