@@ -25,7 +25,7 @@
   "scripts": {
     "test": "jest",
     "coverage": "jest --coverage --watchAll=false",
-    "test:json": "jest --json --watchAll=false --outputFile jest-output.json --coverage",
+    "test:json": "jest --json --watchAll=false --outputFile jest-output.json --coverage --coverageReporters=\"json-summary\"",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix"
   },
@@ -43,7 +43,8 @@
     ],
     "coverageReporters": [
       "text",
-      "lcov"
+      "lcov",
+      "json"
     ]
   }
 }

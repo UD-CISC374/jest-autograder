@@ -86,5 +86,5 @@ run_command "npm install" "npm install" "npm_install" "results10.json" 1
 
 run_command "npm run test:json" "Instructor tests" "instuctor_tests" "results11.json" 1
 
-$JEST_JSON_TOOL -i jest-output.json -o "$OUTPUT_DIR"/"results12.json"
+$JEST_JSON_TOOL -i jest-output.json -c coverage/coverage-summary.json -o "$OUTPUT_DIR"/"results12.json"
 
