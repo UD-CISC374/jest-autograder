@@ -27,7 +27,7 @@ by Cole Bergmann](https://github.com/ucsb-gradescope-tools/maven-autograder), wh
 * In `staging_main`, put your instructor test suite
   * Tests go into `/staging_main/typescript/src/test` replacing
     the files under `/staging_main/typescript/src/test/course`
-  * Copy your `package.json` into `staging_main/typescript/package.json`
+  * Copy your `package.json` into `staging_main/typescript/package.json`, along with any other necessary files for execution.
 * You will likely not need to modify the `grading.config` file in the current
   version, since the defaults are what you will almost always want, but
   there is a reference below in case you do.
