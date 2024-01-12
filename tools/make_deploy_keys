@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+# Navigate to root directory of the autograder
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && cd ../ && pwd )"
+cd $DIR
+
+# Load in GIT_REPO
+GIT_REPO = "${git config --get remote.origin.url}"
+
+KEYS_URL=${GIT_REPO/git@github.com:/https://github.com/}
+KEYS_URL=${KEYS_URL/.git//settings/keys}
+
+echo GIT_REPO=${GIT_REPO}
+echo KEYS_URL=${KEYS_URL}
+
+/bin/rm -rf deploy_keys
+mkdir -p deploy_keys
+ssh-keygen -b 2048 -t rsa -f ./deploy_keys/deploy_key -q -N ""
+
+echo "***                                                      ***"
+echo "***                     INSTRUCTIONS                     ***"
+echo "***                                                      ***"
+echo "*** STEP 0: Make sure env.sh points to the correct repo. ***"
+echo "***         (See value of GIT_REPO shown above)          ***"
+echo "***                                                      ***"
+echo "*** STEP 1: VISIT the web page:                          ***"
+echo "${KEYS_URL}"
+echo "***                                                      ***"
+echo "*** STEP 2: ADD DEPLOY KEY using this key:               ***"
+echo "***                                                      ***"
+cat ./deploy_keys/deploy_key.pub
+echo "***                                                      ***"
+echo "*** STEP 3: RUN ./tools/make_dynamic_autograder.sh                 ***"
+echo "*** STEP 4: UPLOAD Autograder.zip to Gradescope          ***"
+echo "***                                                      ***"
+echo ""
+read -p "Do you wish to run ./tools/make_dynamic_autograder now (y)?" yn
+case $yn in
+    [Yy]* ) ./tools/make_dynamic_autograder ; break;;
+    [Nn]* ) break;;
+    * ) ./tools/make_dynamic_autograder ; break;;
+esac
+

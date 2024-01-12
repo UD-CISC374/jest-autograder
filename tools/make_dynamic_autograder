@@ -1,0 +1,10 @@
+# Root folder of autograder
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && cd ../ && pwd )"
+
+# Add in dynamicautograder stuff
+cd $DIR/dynamic_autograder/
+zip Autograder.zip envVars.sh ssh_config setup.sh run_autograder 
+
+# Then add in deploy keys
+cd $DIR
+zip -u Autograder.zip deploy_keys/deploy_key

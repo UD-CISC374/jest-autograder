@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# Update autograder files
+
+. /autograder/source/envVars.sh
+
+TARGET_DIR="/autograder/git-repo/${REPO_NAME}"
+
+echo \$REPO_NAME=${REPO_NAME}
+pwd
+cd $TARGET_DIR
+pwd
+# Get latest updates to the actual repo
+git pull origin master
+
+rm -rf deploy_keys
+
+# Run the *actual* run_autograder.sh
+chmod u+x ./run_autograder.sh
+# Provide the git-repo/ directory as the destination to run from
+./run_autograder.sh "${TARGET_DIR}"
+
+
