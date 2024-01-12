@@ -3,9 +3,10 @@
 This autograder is intended for use with assignments that use Jest,
 a test framework for typescript.
 
-It borrows heavily from an [autograder written for Maven
+This is a fork of a JavaScript Jest autograder, written by Phill Conrad.
+That borrows heavily from an [autograder written for Maven
 by Cole Bergmann](https://github.com/ucsb-gradescope-tools/maven-autograder), which in turn is based on earlier autograders by Phill Conrad.
-
+So this is a fork of a fork of a fork.
 
 # References
 
