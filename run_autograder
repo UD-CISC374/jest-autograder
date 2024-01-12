@@ -87,10 +87,10 @@ error_exit()
 }
 
 if [ "$CONFIG_TEST_STUDENT_MAIN" = true ] ; then
-    DIRECTORY_SOUGHT="typescript/src/main"
+    DIRECTORY_SOUGHT="src/main"
     copy_student_directory "$DIRECTORY_SOUGHT" "$DIR"/staging_main/${DIRECTORY_SOUGHT}
 
-    PUBLIC_FOLDER="typescript/public"
+    PUBLIC_FOLDER="public"
     copy_student_directory "$PUBLIC_FOLDER" "$DIR"/staging_main/${PUBLIC_FOLDER}
 
     "$DIR"/run_main_tests

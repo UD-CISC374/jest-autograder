@@ -69,10 +69,10 @@ source "$DIR"/grading.config
 #
 ###########################################################################################
 
-cd "$DIR"/staging_main/typescript
+cd "$DIR"/staging_main
 
 
-rm -rf "$DIR"/staging_main/typescript/node_modules
+rm -rf "$DIR"/staging_main/node_modules
 
 run_command "npm install" "npm install" "npm_install" "results10.json" 1
 

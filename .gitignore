@@ -29,6 +29,6 @@ Autograder.zip
 .project
 .settings/
 
-staging_main/typescript/src/main/*
-!staging_main/typescript/src/main/.keep
+staging_main/src/main/*
+!staging_main/src/main/.keep
 staging_test/*
