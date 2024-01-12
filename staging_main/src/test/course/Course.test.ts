@@ -15,4 +15,16 @@ describe('Course class tests', () => {
             expect(course.toString()).toBe('CMPSC 156 (4 units)');
         });
     });
+
+    describe('special tests', () => {
+        test('(5 pts) A broken, secret test!!secret', () => {
+            expect(5).toBe(6);
+        });
+        test('(5 pts) A broken, hidden test!!hidden', () => {
+            expect(5).toBe(6);
+        });
+        test('(5 pts) A broken, visible test!!visible', () => {
+            expect(5).toBe(6);
+        });
+    });
 });
